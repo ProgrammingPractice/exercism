@@ -1,32 +1,31 @@
 class SecretHandshake
-  attr_reader :commands
-
-  def initialize(foo)
-    @commands = []
-    convert_to_handshake(foo)
+  def initialize(decimal)
+    @decimal = decimal
   end
 
-  def convert_to_handshake(decimal)
-    return unless decimal.is_a? Integer
+  def commands
+    return [] unless @decimal.is_a?(Integer)
 
-    if decimal & 1 == 1
-      @commands << 'wink'
-    end
-    
-    if decimal & 2 == 2
-      @commands << 'double blink'
-    end
+    [].tap do |array|
+      if @decimal & 1 == 1
+        array << 'wink'
+      end
+      
+      if @decimal & 2 == 2
+        array << 'double blink'
+      end
 
-    if decimal & 4 == 4
-      @commands << 'close your eyes'
-    end
+      if @decimal & 4 == 4
+        array << 'close your eyes'
+      end
 
-    if decimal & 8 == 8
-      @commands << 'jump'
-    end
+      if @decimal & 8 == 8
+        array << 'jump'
+      end
 
-    if decimal & 16 == 16
-      @commands.reverse!
+      if @decimal & 16 == 16
+        array.reverse!
+      end
     end
   end
 end
