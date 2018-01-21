@@ -7,6 +7,8 @@ class SecretHandshake
   end
 
   def convert_to_handshake(decimal)
+    return unless decimal.is_a? Integer
+
     if decimal & 1 == 1
       @commands << 'wink'
     end
@@ -17,8 +19,14 @@ class SecretHandshake
 
     if decimal & 4 == 4
       @commands << 'close your eyes'
-    elsif decimal & 8 == 8
+    end
+
+    if decimal & 8 == 8
       @commands << 'jump'
+    end
+
+    if decimal & 16 == 16
+      @commands.reverse!
     end
   end
 end
