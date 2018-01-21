@@ -1,4 +1,11 @@
 class SecretHandshake
+  ENCODINGS = {
+    1 => 'wink',
+    2 => 'double blink',
+    4 => 'close your eyes',
+    8 => 'jump'
+  }
+
   def initialize(decimal)
     @decimal = decimal
   end
@@ -7,25 +14,17 @@ class SecretHandshake
     return [] unless @decimal.is_a?(Integer)
 
     [].tap do |array|
-      if @decimal & 1 == 1
-        array << 'wink'
-      end
-      
-      if @decimal & 2 == 2
-        array << 'double blink'
+      ENCODINGS.keys.each do |event_code|
+        array << ENCODINGS[event_code] if check_binary_flag(@decimal, event_code)
       end
 
-      if @decimal & 4 == 4
-        array << 'close your eyes'
-      end
-
-      if @decimal & 8 == 8
-        array << 'jump'
-      end
-
-      if @decimal & 16 == 16
-        array.reverse!
-      end
+      array.reverse! if check_binary_flag(@decimal, 16)
     end
+  end
+
+  private
+
+  def check_binary_flag(decimal, event_code)
+    decimal & event_code == event_code
   end
 end
