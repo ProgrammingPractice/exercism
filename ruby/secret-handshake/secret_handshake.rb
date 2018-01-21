@@ -7,15 +7,17 @@ class SecretHandshake
   end
 
   def convert_to_handshake(decimal)
-    binary_representation = decimal.to_s(2)
-
-    if binary_representation == '1'
+    if decimal & 1 == 1
       @commands << 'wink'
-    elsif binary_representation == '10'
+    end
+    
+    if decimal & 2 == 2
       @commands << 'double blink'
-    elsif binary_representation == '100'
+    end
+
+    if decimal & 4 == 4
       @commands << 'close your eyes'
-    elsif binary_representation == '1000'
+    elsif decimal & 8 == 8
       @commands << 'jump'
     end
   end
