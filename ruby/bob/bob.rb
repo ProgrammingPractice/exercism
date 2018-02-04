@@ -1,15 +1,18 @@
+class BookKeeping
+  VERSION = 1
+end
+
 class Bob
   class << self
     def hey(remark)
-      case remark
-      when /^[\d\s,]*$/
-        "Whatever."
-      when /^[a-z\d\W]*\?$/
-        'Sure.'
-      when /^[A-Z\W\d]*$/
+      if remark =~ /\A\s*\z/
+        'Fine. Be that way!'
+      elsif remark =~ /\A[A-Z\d\W]*[A-Z]+[A-Z\d\W]*\z/
         'Whoa, chill out!'
+      elsif remark =~ /\?\s*\z/
+        'Sure.'
       else
-        "Whatever."
+        'Whatever.'
       end
     end
   end
