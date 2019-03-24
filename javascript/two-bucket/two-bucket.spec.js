@@ -2,58 +2,71 @@ import { TwoBucket } from './two-bucket';
 
 describe('TwoBucket', () => {
   describe('our tdd', () => {
-    test('descrp', () => {
+    test('description', () => {
       expect(1 + 1).toEqual(2);
     });
   });
 
-  describe('works for input of 3, 5, 1', () => {
-    const buckOne = 3;
-    const buckTwo = 5;
+  describe('works for input of 1, 1, 1', () => {
+    const buckOne = 1;
+    const buckTwo = 1;
     const goal = 1;
 
-    xtest('starting with bucket one', () => {
-      // indicates which bucket to fill first
+    test('starting with bucket one', () => {
       const starterBuck = 'one';
       const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
-      // includes the first fill
-      expect(twoBucket.moves()).toEqual(4);
-      // which bucket should end up with the desired # of liters
-      expect(twoBucket.goalBucket).toEqual('one');
-      // leftover value in the "other" bucket once the goal has been reached
-      expect(twoBucket.otherBucket).toEqual(5);
-    });
-
-    xtest('starting with bucket two', () => {
-      const starterBuck = 'two';
-      const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
-      expect(twoBucket.moves()).toEqual(8);
-      expect(twoBucket.goalBucket).toEqual('two');
-      expect(twoBucket.otherBucket).toEqual(3);
+      expect(twoBucket.moves()).toEqual(1);
     });
   });
 
-  describe('works for input of 7, 11, 2', () => {
-    const buckOne = 7;
-    const buckTwo = 11;
-    const goal = 2;
 
-    xtest('starting with bucket one', () => {
-      const starterBuck = 'one';
-      const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
-      expect(twoBucket.moves()).toEqual(14);
-      expect(twoBucket.goalBucket).toEqual('one');
-      expect(twoBucket.otherBucket).toEqual(11);
-    });
+  // describe('works for input of 3, 5, 1', () => {
+  //   const buckOne = 3;
+  //   const buckTwo = 5;
+  //   const goal = 1;
 
-    xtest('starting with bucket two', () => {
-      const starterBuck = 'two';
-      const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
-      expect(twoBucket.moves()).toEqual(18);
-      expect(twoBucket.goalBucket).toEqual('two');
-      expect(twoBucket.otherBucket).toEqual(7);
-    });
-  });
+  //   xtest('starting with bucket one', () => {
+  //     // indicates which bucket to fill first
+  //     const starterBuck = 'one';
+  //     const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
+  //     // includes the first fill
+  //     expect(twoBucket.moves()).toEqual(4);
+  //     // which bucket should end up with the desired # of liters
+  //     expect(twoBucket.goalBucket).toEqual('one');
+  //     // leftover value in the "other" bucket once the goal has been reached
+  //     expect(twoBucket.otherBucket).toEqual(5);
+  //   });
+
+  //   xtest('starting with bucket two', () => {
+  //     const starterBuck = 'two';
+  //     const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
+  //     expect(twoBucket.moves()).toEqual(8);
+  //     expect(twoBucket.goalBucket).toEqual('two');
+  //     expect(twoBucket.otherBucket).toEqual(3);
+  //   });
+  // });
+
+  // describe('works for input of 7, 11, 2', () => {
+  //   const buckOne = 7;
+  //   const buckTwo = 11;
+  //   const goal = 2;
+
+  //   xtest('starting with bucket one', () => {
+  //     const starterBuck = 'one';
+  //     const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
+  //     expect(twoBucket.moves()).toEqual(14);
+  //     expect(twoBucket.goalBucket).toEqual('one');
+  //     expect(twoBucket.otherBucket).toEqual(11);
+  //   });
+
+  //   xtest('starting with bucket two', () => {
+  //     const starterBuck = 'two';
+  //     const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
+  //     expect(twoBucket.moves()).toEqual(18);
+  //     expect(twoBucket.goalBucket).toEqual('two');
+  //     expect(twoBucket.otherBucket).toEqual(7);
+  //   });
+  // });
 });
 
 // 0 11 f
@@ -74,3 +87,9 @@ describe('TwoBucket', () => {
 // 7 9  t
 // 0 9  e
 // 7 2  t
+
+//Intial: 3 5 1
+// 3 0 f
+// 0 3 t
+// 3 3 f
+// 1 5 t
