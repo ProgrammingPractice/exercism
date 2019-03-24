@@ -15,12 +15,28 @@ describe('TwoBucket', () => {
     test('starting with bucket one', () => {
       const starterBuck = 'one';
       const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
+
       expect(twoBucket.moves()).toEqual(1);
       expect(twoBucket.goalBucket).toEqual('one');
-      expect(twoBucket.otherBucket).toEqual(0);
+      expect(twoBucket.otherBucket()).toEqual(0);
     });
   });
 
+  describe('works for input of 2, 1, 1', () => {
+    const buckOne = 2;
+    const buckTwo = 1;
+    const goal = 1;
+
+    test('starting with bucket one', () => {
+      const starterBuck = 'one';
+      const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
+      expect(twoBucket.moves()).toEqual(2);
+      expect(twoBucket.goalBucket).toEqual('one');
+      expect(twoBucket.otherBucket()).toEqual(1);
+    });
+    // 2 0 f
+    // 1 1 t
+  });
 
   // describe('works for input of 3, 5, 1', () => {
   //   const buckOne = 3;
@@ -36,7 +52,7 @@ describe('TwoBucket', () => {
   //     // which bucket should end up with the desired # of liters
   //     expect(twoBucket.goalBucket).toEqual('one');
   //     // leftover value in the "other" bucket once the goal has been reached
-  //     expect(twoBucket.otherBucket).toEqual(5);
+  //     expect(twoBucket.otherBucket()).toEqual(5);
   //   });
 
   //   xtest('starting with bucket two', () => {
@@ -44,7 +60,7 @@ describe('TwoBucket', () => {
   //     const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
   //     expect(twoBucket.moves()).toEqual(8);
   //     expect(twoBucket.goalBucket).toEqual('two');
-  //     expect(twoBucket.otherBucket).toEqual(3);
+  //     expect(twoBucket.otherBucket()).toEqual(3);
   //   });
   // });
 
@@ -58,7 +74,7 @@ describe('TwoBucket', () => {
   //     const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
   //     expect(twoBucket.moves()).toEqual(14);
   //     expect(twoBucket.goalBucket).toEqual('one');
-  //     expect(twoBucket.otherBucket).toEqual(11);
+  //     expect(twoBucket.otherBucket()).toEqual(11);
   //   });
 
   //   xtest('starting with bucket two', () => {
@@ -66,11 +82,28 @@ describe('TwoBucket', () => {
   //     const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
   //     expect(twoBucket.moves()).toEqual(18);
   //     expect(twoBucket.goalBucket).toEqual('two');
-  //     expect(twoBucket.otherBucket).toEqual(7);
+  //     expect(twoBucket.otherBucket()).toEqual(7);
   //   });
   // });
 });
 
+// Initial: 7 11 2 one
+// 7 0 f
+// 0 7 t
+// 7 7 f
+// 3 11 t
+// 3 0 e
+// 0 3 t
+// 7 3 f
+// 0 10 t
+// 7 10 f
+// 6 11 t
+// 6 0 e
+// 0 6 t
+// 7 6 f
+// 2 11 t
+
+// Initial: 7 11 2 two
 // 0 11 f
 // 7 4  t
 // 0 4  e
