@@ -27,12 +27,22 @@ class TwoBucket {
     this.movesCounter += 1;
   }
 
+  empty () {
+    this.contentBucket2 = 0;
+    this.movesCounter += 1;
+  }
+
   moves() {
     if (this.contentBucket1 === this.goal) {
       return this.movesCounter;
     }
 
-    this.tranferContent();
+    if (this.contentBucket2 === 0) {
+      this.tranferContent();
+    } else {
+      this.empty();
+    }
+
     return this.moves();
   }
 }

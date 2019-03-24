@@ -38,6 +38,24 @@ describe('TwoBucket', () => {
     // 1 1 t
   });
 
+  describe('works for input of 3, 1, 1', () => {
+    const buckOne = 3;
+    const buckTwo = 1;
+    const goal = 1;
+
+    test('starting with bucket one', () => {
+      const starterBuck = 'one';
+      const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
+      expect(twoBucket.moves()).toEqual(4);
+      expect(twoBucket.goalBucket).toEqual('one');
+      expect(twoBucket.otherBucket()).toEqual(1);
+    });
+    // 3 0 f
+    // 2 1 t
+    // 2 0 e
+    // 1 1 t
+  });
+
   // describe('works for input of 3, 5, 1', () => {
   //   const buckOne = 3;
   //   const buckTwo = 5;
