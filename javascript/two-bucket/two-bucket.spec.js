@@ -56,6 +56,42 @@ describe('TwoBucket', () => {
     // 1 1 t
   });
 
+  describe('works for input of 3, 2, 1', () => {
+    const buckOne = 3;
+    const buckTwo = 2;
+    const goal = 1;
+
+    test('starting with bucket one', () => {
+      const starterBuck = 'one';
+      const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
+      expect(twoBucket.moves()).toEqual(2);
+      expect(twoBucket.goalBucket).toEqual('one');
+      expect(twoBucket.otherBucket()).toEqual(2);
+    });
+    // 3 0 f
+    // 1 2 t
+  });
+
+  describe('works for input of 3, 2, 2', () => {
+    const buckOne = 3;
+    const buckTwo = 2;
+    const goal = 2;
+
+    test('starting with bucket one', () => {
+      const starterBuck = 'one';
+      const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
+      expect(twoBucket.moves()).toEqual(6);
+      expect(twoBucket.goalBucket).toEqual('one');
+      expect(twoBucket.otherBucket()).toEqual(2);
+    });
+    // 3 0 f
+    // 1 2 t
+    // 1 0 e
+    // 0 1 t
+    // 3 1 f
+    // 2 2 t
+  });
+
   // describe('works for input of 3, 5, 1', () => {
   //   const buckOne = 3;
   //   const buckTwo = 5;
