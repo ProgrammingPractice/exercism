@@ -1,7 +1,7 @@
 class TwoBucket {
-  // constructor(buckOne, buckTwo, goal, starterBuck) {
-  //   console.log('>>>> constructor called', buckOne, buckTwo, goal, starterBuck);
-  // }
+  constructor(buckOne, buckTwo, goal, starterBuck) {
+    this.goalBucket = starterBuck;
+  }
 
   moves() {
     return 4;

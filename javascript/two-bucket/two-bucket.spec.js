@@ -1,12 +1,18 @@
 import { TwoBucket } from './two-bucket';
 
 describe('TwoBucket', () => {
+  describe('our tdd', () => {
+    test('descrp', () => {
+      expect(1 + 1).toEqual(2);
+    });
+  });
+
   describe('works for input of 3, 5, 1', () => {
     const buckOne = 3;
     const buckTwo = 5;
     const goal = 1;
 
-    test('starting with bucket one', () => {
+    xtest('starting with bucket one', () => {
       // indicates which bucket to fill first
       const starterBuck = 'one';
       const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
@@ -51,51 +57,20 @@ describe('TwoBucket', () => {
 });
 
 // 0 11 f
-
 // 7 4  t
-
 // 0 4  e
-
 // 4 0  t
-
 // 4 11 f
-
 // 7 8  t
-
 // 0 8  e
-
 // 7 1  t
-
 // 0 1  e
-
 // 1 0  t
-
 // 1 11 f
-
 // 7 5  t
-
 // 0 5  e
-
 // 5 0  t
-
 // 5 11 f
-
 // 7 9  t
-
 // 0 9  e
-
 // 7 2  t
-
-
-
-
-
-
-
-
-
-
-
-
-
-
