@@ -16,6 +16,8 @@ describe('TwoBucket', () => {
       const starterBuck = 'one';
       const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
       expect(twoBucket.moves()).toEqual(1);
+      expect(twoBucket.goalBucket).toEqual('one');
+      expect(twoBucket.otherBucket).toEqual(0);
     });
   });
 

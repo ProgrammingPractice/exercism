@@ -2,6 +2,7 @@ class TwoBucket {
   constructor(buckOne, buckTwo, goal, starterBuck) {
   	this.moves_counter = 0;
     this.goalBucket = starterBuck;
+  	this.otherBucket = 0;
 
     this.fill_starter_bucket();
   }
