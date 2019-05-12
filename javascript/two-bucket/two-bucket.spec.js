@@ -77,7 +77,7 @@ describe('TwoBucket', () => {
     const buckTwo = 2;
     const goal = 2;
 
-    test('starting with bucket one', () => {
+    xtest('starting with bucket one', () => {
       const starterBuck = 'one';
       const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
       expect(twoBucket.moves()).toEqual(6);
