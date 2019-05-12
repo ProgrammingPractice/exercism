@@ -92,6 +92,31 @@ describe('TwoBucket', () => {
     // 2 2 t
   });
 
+  describe('transfer works for all cases', () => {
+    // const buckOne = 3;
+    // const buckTwo = 5;
+    // const starterBuck = 'one';
+    // //both empty
+    // goal = 0
+    // const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
+    // twoBucket.transfer();
+    // expect(twoBucket.contentBucket1).toEqual(0);
+    // expect(twoBucket.contentBucket2).toEqual(0);
+
+    //both full
+    //source partially full, destination partially full
+
+    //source full, destination empty
+    //source full, destination partially full
+
+    //source partially full, destination empty
+    //source partially full, destination full
+
+    //source empty, destination full
+    //source empty, destination partially full
+
+  });
+
   // describe('works for input of 3, 5, 1', () => {
   //   const buckOne = 3;
   //   const buckTwo = 5;
