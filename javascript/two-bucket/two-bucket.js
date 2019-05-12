@@ -28,7 +28,6 @@ class TwoBucket {
       return;
     }
 
-
     this.contentBucket2 = this.contentBucket1;
     this.contentBucket1 = 0;
     // this.contentBucket1 -= this.sizeBucket2;
