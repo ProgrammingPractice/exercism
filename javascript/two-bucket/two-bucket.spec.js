@@ -1,13 +1,7 @@
 import { TwoBucket } from './two-bucket';
 
 describe('TwoBucket', () => {
-  describe('our tdd', () => {
-    test('description', () => {
-      expect(1 + 1).toEqual(2);
-    });
-  });
-
-  describe('works for input of 1, 1, 1', () => {
+  xdescribe('works for input of 1, 1, 1', () => {
     const buckOne = 1;
     const buckTwo = 1;
     const goal = 1;
@@ -22,7 +16,7 @@ describe('TwoBucket', () => {
     });
   });
 
-  describe('works for input of 2, 1, 1', () => {
+  xdescribe('works for input of 2, 1, 1', () => {
     const buckOne = 2;
     const buckTwo = 1;
     const goal = 1;
@@ -38,7 +32,7 @@ describe('TwoBucket', () => {
     // 1 1 t
   });
 
-  describe('works for input of 3, 1, 1', () => {
+  xdescribe('works for input of 3, 1, 1', () => {
     const buckOne = 3;
     const buckTwo = 1;
     const goal = 1;
@@ -56,7 +50,7 @@ describe('TwoBucket', () => {
     // 1 1 t
   });
 
-  describe('works for input of 3, 2, 1', () => {
+  xdescribe('works for input of 3, 2, 1', () => {
     const buckOne = 3;
     const buckTwo = 2;
     const goal = 1;
@@ -72,7 +66,7 @@ describe('TwoBucket', () => {
     // 1 2 t
   });
 
-  describe('works for input of 3, 2, 2', () => {
+  xdescribe('works for input of 3, 2, 2', () => {
     const buckOne = 3;
     const buckTwo = 2;
     const goal = 2;
@@ -93,28 +87,41 @@ describe('TwoBucket', () => {
   });
 
   describe('transfer works for all cases', () => {
-    // const buckOne = 3;
-    // const buckTwo = 5;
-    // const starterBuck = 'one';
-    // //both empty
-    // goal = 0
-    // const twoBucket = new TwoBucket(buckOne, buckTwo, goal, starterBuck);
-    // twoBucket.transfer();
-    // expect(twoBucket.contentBucket1).toEqual(0);
-    // expect(twoBucket.contentBucket2).toEqual(0);
+    const buckOne = 3;
+    const buckTwo = 5;
+    const goal = 0;
+    const starterBuck = 'one';
 
-    //both full
-    //source partially full, destination partially full
+    test('when source is empty nothing changes', () => {
+      // source empty, destination partially full
+      const twoBucket = new TwoBucket(3, 5, goal, starterBuck);
+      twoBucket.contentBucket1 = 0;
+      twoBucket.contentBucket2 = 5;
+      twoBucket.transferContent();
+      expect(twoBucket.contentBucket1).toEqual(0);
+      expect(twoBucket.contentBucket2).toEqual(5);
+    });
 
-    //source full, destination empty
-    //source full, destination partially full
+    test('when destination is full nothing changes', () => {
+      // source empty, destination full
+      // source partially full, destination full
+      // source full, destination full
+      const twoBucket = new TwoBucket(3, 5, goal, starterBuck);
+      twoBucket.contentBucket1 = 3;
+      twoBucket.contentBucket2 = 5;
+      twoBucket.transferContent();
+      expect(twoBucket.contentBucket1).toEqual(3);
+      expect(twoBucket.contentBucket2).toEqual(5);
+    });
 
-    //source partially full, destination empty
-    //source partially full, destination full
+    // source partially full, destination partially full
 
-    //source empty, destination full
-    //source empty, destination partially full
+    // source full, destination empty
+    // - capacities of 3 and 5
+    // - capacities of 5 and 3
+    // source full, destination partially full
 
+    // source partially full, destination empty
   });
 
   // describe('works for input of 3, 5, 1', () => {
@@ -202,7 +209,7 @@ describe('TwoBucket', () => {
 // 0 9  e
 // 7 2  t
 
-//Intial: 3 5 1
+// Intial: 3 5 1
 // 3 0 f
 // 0 3 t
 // 3 3 f

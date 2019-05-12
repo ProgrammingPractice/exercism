@@ -19,10 +19,10 @@ class TwoBucket {
     this.movesCounter += 1;
   }
 
-  tranferContent() {
-    this.contentBucket1 -= this.sizeBucket2;
-    this.contentBucket2 = this.sizeBucket2;
-    this.movesCounter += 1;
+  transferContent() {
+    // this.contentBucket1 -= this.sizeBucket2;
+    // this.contentBucket2 = this.sizeBucket2;
+    // this.movesCounter += 1;
   }
 
   empty () {
@@ -41,7 +41,7 @@ class TwoBucket {
     }
 
     if (this.contentBucket2 === 0) {
-      this.tranferContent();
+      this.transferContent();
     } else {
       this.empty();
     }
