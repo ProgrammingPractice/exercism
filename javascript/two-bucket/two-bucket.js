@@ -8,8 +8,6 @@ class TwoBucket {
     this.goal = goal;
 
     this.goalBucket = starterBuck;
-
-    this.fillStarterBucket();
   }
 
   otherBucket() {
@@ -33,6 +31,11 @@ class TwoBucket {
   }
 
   moves() {
+    this.fillStarterBucket();
+    return this.calculateMoves();
+  }
+
+  calculateMoves() {
     if (this.contentBucket1 === this.goal) {
       return this.movesCounter;
     }
@@ -43,7 +46,7 @@ class TwoBucket {
       this.empty();
     }
 
-    return this.moves();
+    return this.calculateMoves();
   }
 }
 
