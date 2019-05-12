@@ -20,6 +20,17 @@ class TwoBucket {
   }
 
   transferContent() {
+    if (this.contentBucket2 === this.sizeBucket2) {
+      return;
+    }
+
+    if (this.contentBucket1 === 0) {
+      return;
+    }
+
+
+    this.contentBucket2 = this.contentBucket1;
+    this.contentBucket1 = 0;
     // this.contentBucket1 -= this.sizeBucket2;
     // this.contentBucket2 = this.sizeBucket2;
     // this.movesCounter += 1;

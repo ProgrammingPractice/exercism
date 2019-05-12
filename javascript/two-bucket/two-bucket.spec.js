@@ -96,10 +96,10 @@ describe('TwoBucket', () => {
       // source empty, destination partially full
       const twoBucket = new TwoBucket(3, 5, goal, starterBuck);
       twoBucket.contentBucket1 = 0;
-      twoBucket.contentBucket2 = 5;
+      twoBucket.contentBucket2 = 3;
       twoBucket.transferContent();
       expect(twoBucket.contentBucket1).toEqual(0);
-      expect(twoBucket.contentBucket2).toEqual(5);
+      expect(twoBucket.contentBucket2).toEqual(3);
     });
 
     test('when destination is full nothing changes', () => {
@@ -112,6 +112,15 @@ describe('TwoBucket', () => {
       twoBucket.transferContent();
       expect(twoBucket.contentBucket1).toEqual(3);
       expect(twoBucket.contentBucket2).toEqual(5);
+    });
+
+    test('when the whole content of source fits into the destination', () => {
+      const twoBucket = new TwoBucket(3, 5, goal, starterBuck);
+      twoBucket.contentBucket1 = 3;
+      twoBucket.contentBucket2 = 0;
+      twoBucket.transferContent();
+      expect(twoBucket.contentBucket1).toEqual(0);
+      expect(twoBucket.contentBucket2).toEqual(3);
     });
 
     // source partially full, destination partially full
